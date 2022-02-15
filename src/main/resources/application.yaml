@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: tutorials-redis-api
+  redis:
+    client-name: ${spring.application.name}
+    host: localhost
+    port: 6379
+  cloud:
+    discovery:
+      client:
+        composite-indicator:
+          enabled: false
+management:
+  endpoint:
+    health:
+      show-details: always
+  health:
+    diskspace:
+      enabled: false
+  endpoints:
+    web:
+      discovery:
+        enabled: false
