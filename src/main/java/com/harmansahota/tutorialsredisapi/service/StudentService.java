@@ -2,19 +2,17 @@ package com.harmansahota.tutorialsredisapi.service;
 
 import com.harmansahota.tutorialsredisapi.model.Student;
 import com.harmansahota.tutorialsredisapi.repository.StudentRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class StudentService {
 
     private final StudentRepository studentRepository;
-
-    public StudentService(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
 
     public Student findById(String id) {
 

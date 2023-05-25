@@ -9,5 +9,4 @@ public class TutorialsRedisApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(TutorialsRedisApiApplication.class, args);
     }
-
 }
