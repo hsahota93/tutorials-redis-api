@@ -3,11 +3,13 @@ package com.harmansahota.tutorialsredisapi.service;
 import com.harmansahota.tutorialsredisapi.model.Student;
 import com.harmansahota.tutorialsredisapi.repository.StudentRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class StudentService {
@@ -20,6 +22,7 @@ public class StudentService {
 
         if (optionalStudent.isPresent()) {
 
+            log.info("Found the following student: {}", optionalStudent.get());
             return optionalStudent.get();
         } else {
 
