@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentRepository extends CrudRepository<Student, String> {
 
+    // Empty for now as we're just using the methods from CrudRepository
 }
