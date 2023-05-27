@@ -4,9 +4,11 @@ import com.harmansahota.tutorialsredisapi.model.Student;
 import com.harmansahota.tutorialsredisapi.repository.StudentRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.Collection;
 import java.util.Optional;
 
 @Slf4j
@@ -16,7 +18,7 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-    public Student findById(String id) {
+    public Student findStudentById(String id) {
 
         Optional<Student> optionalStudent = studentRepository.findById(id);
 
@@ -31,12 +33,19 @@ public class StudentService {
     }
 
     // TODO: throw error if the ID already exists
-    public Student insert(String id, Student newStudent) {
+    public Student insertStudent(Student newStudent) {
 
-        newStudent.setId(id);
         newStudent.setCreatedDateTime(Instant.now());
         return studentRepository.save(newStudent);
     }
 
-    // TODO: implement more methods
+    public void deleteStudent(String id) {
+
+        studentRepository.deleteById(id);
+    }
+
+    public Collection<Student> findAllStudents() {
+
+        return IteratorUtils.toList(studentRepository.findAll().iterator());
+    }
 }
