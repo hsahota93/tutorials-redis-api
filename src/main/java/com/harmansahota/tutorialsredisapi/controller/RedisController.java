@@ -2,15 +2,14 @@ package com.harmansahota.tutorialsredisapi.controller;
 
 import com.harmansahota.tutorialsredisapi.exception.RecordNotFoundException;
 import com.harmansahota.tutorialsredisapi.model.Student;
+import com.harmansahota.tutorialsredisapi.model.StudentResponse;
 import com.harmansahota.tutorialsredisapi.service.StudentService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 
 import java.util.Collection;
 
@@ -44,10 +43,4 @@ public class RedisController {
 
         studentService.deleteStudent(id);
     }
-
-    // TODO: add controller advice
-//    @ExceptionHandler({RecordNotFoundException.class})
-//    public ResponseEntity<Object> handleAccessDeniedException(Exception ex) {
-//        return new ResponseEntity<>(ex.getMessage());
-//    }
 }

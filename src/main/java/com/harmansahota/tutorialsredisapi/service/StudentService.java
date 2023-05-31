@@ -7,9 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.IteratorUtils;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -32,6 +30,7 @@ public class StudentService {
             return optionalStudent.get();
         } else {
 
+            log.error("Couldn't find any data for id: {}", id);
             throw new RecordNotFoundException("No data found for id: " + id);
         }
     }
