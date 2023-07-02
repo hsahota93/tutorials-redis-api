@@ -4,8 +4,10 @@ import com.harmansahota.tutorialsredisapi.model.Student;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
-public interface StudentRepository extends CrudRepository<Student, String> {
+public interface StudentRepository extends CrudRepository<Student, UUID> {
 
     // Empty for now as we're just using the methods from CrudRepository
 }

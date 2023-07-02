@@ -13,6 +13,7 @@ import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -21,7 +22,7 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-    public Student findStudentById(String id) {
+    public Student findStudentById(UUID id) {
 
         Optional<Student> optionalStudent = studentRepository.findById(id);
         if (optionalStudent.isPresent()) {
@@ -41,7 +42,7 @@ public class StudentService {
         return studentRepository.save(newStudent);
     }
 
-    public void deleteStudent(String id) {
+    public void deleteStudent(UUID id) {
 
         try {
 
